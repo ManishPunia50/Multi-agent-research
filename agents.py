@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #model setup 
-llm = ChatGroq(model="qwen/qwen3.6-27b", temperature=0)
+llm = ChatGroq(model="qwen/qwen3.8-27b", temperature=0)
+
 
 
 
