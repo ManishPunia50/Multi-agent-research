@@ -14,11 +14,12 @@ llm = ChatGroq(model="qwen/qwen3.8-27b", temperature=0)
 
 
 
-#1st agent 
+#1st agent def build_search_agent():
 def build_search_agent():
     return create_agent(
         model = llm,
-        tools= [web_search]
+        tools = [web_search],
+        system_prompt = "Call web_search exactly once, then reply with a short summary and the URLs. Do not search again."
     )
 
 #2nd agent 
@@ -26,7 +27,8 @@ def build_search_agent():
 def build_reader_agent():
     return create_agent(
         model = llm,
-        tools = [scrape_url]
+        tools = [scrape_url],
+        system_prompt = "Call scrape_url exactly once on the best URL, then summarize the content briefly."
     )
 
 
